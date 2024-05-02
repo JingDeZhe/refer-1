@@ -1,8 +1,12 @@
 {
   "scripts": {
+    "dev": "node dev.mjs",
     "build": "node index.mjs"
   },
   "devDependencies": {
-    "fast-glob": "^3.3.2"
+    "@koa/cors": "^5.0.0",
+    "fast-glob": "^3.3.2",
+    "koa": "^2.15.3",
+    "koa-static": "^5.0.0"
   }
 }

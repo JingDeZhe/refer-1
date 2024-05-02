@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Base</title>
     <style>
+      html {
+        background-color: #100c2a;
+        padding: 1rem;
+      }
       .ctn {
         width: 600px;
         height: 600px;
@@ -14,9 +18,10 @@
   </head>
   <body>
     <div id="d1" class="ctn"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.11/iframeResizer.contentWindow.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.5.0/echarts.js"></script>
     <script>
-      const c1 = echarts.init(document.getElementById('d1'))
+      const c1 = echarts.init(document.getElementById('d1'), 'dark')
       c1.setOption({
         title: { text: '简单折线图' },
         xAxis: {
