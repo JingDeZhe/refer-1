@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Base</title>
+    <style>
+      .ctn {
+        width: 600px;
+        height: 600px;
+        max-width: 90%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="d1" class="ctn"></div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.5.0/echarts.js"></script>
+    <script>
+      const c1 = echarts.init(document.getElementById('d1'))
+      c1.setOption({
+        title: { text: '简单折线图' },
+        xAxis: {
+          type: 'category',
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        },
+        yAxis: {
+          type: 'value',
+        },
+        series: [
+          {
+            data: [150, 230, 224, 218, 135, 147, 260],
+            type: 'line',
+          },
+        ],
+      })
+    </script>
+  </body>
+</html>

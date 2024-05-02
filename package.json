@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "build": "node index.mjs",
-    "build-ui-1": "node ./ui-1/index.mjs"
+    "build": "node index.mjs"
   },
   "devDependencies": {
     "fast-glob": "^3.3.2"
