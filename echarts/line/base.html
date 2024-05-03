@@ -4,11 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Base</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/picocss/2.0.6/pico.min.css" />
     <style>
       html {
         background-color: #100c2a;
-        padding: 0;
-        margin: 0;
       }
       body {
         margin: 0;
@@ -22,13 +21,23 @@
     </style>
   </head>
   <body>
+    <p>
+      <button onclick="toggleSmooth1()">Toggle Smooth</button>
+      <button onclick="toggleAreaStyle1()">Toggle Area</button>
+    </p>
     <div id="d1" class="ctn"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.11/iframeResizer.contentWindow.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.5.0/echarts.js"></script>
     <script>
       const c1 = echarts.init(document.getElementById('d1'), 'dark')
+      let c1Smooth = false
+      let c1AreaStyle = undefined
       c1.setOption({
         title: { text: '简单折线图' },
+        tooltip: {
+          trigger: 'axis',
+        },
+        legend: { data: ['文学'] },
         xAxis: {
           type: 'category',
           data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -43,6 +52,20 @@
           },
         ],
       })
+
+      function toggleSmooth1() {
+        c1Smooth = !c1Smooth
+        c1.setOption({
+          series: [{ smooth: c1Smooth }],
+        })
+      }
+
+      function toggleAreaStyle1() {
+        c1AreaStyle = c1AreaStyle ? undefined : {}
+        c1.setOption({
+          series: [{ areaStyle: c1AreaStyle }],
+        })
+      }
     </script>
   </body>
 </html>
