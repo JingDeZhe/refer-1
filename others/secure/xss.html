@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XSS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/picocss/2.0.6/pico.min.css" />
+  </head>
+  <body>
+    <main class="container">
+      <article>
+        <input type="text" id="input1" value="<script>alert('hack')</script>" />
+        <p><button onclick="confirmInput1()">提交</button></p>
+        <iframe srcdoc="Iframe内容为上面Input的值" frameborder="0" id="inner1"></iframe>
+      </article>
+    </main>
+  </body>
+  <script>
+    function confirmInput1() {
+      const input1 = document.querySelector('#input1')
+      document.querySelector('#inner1').srcdoc = input1.value
+    }
+  </script>
+</html>

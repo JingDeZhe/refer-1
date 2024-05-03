@@ -1,0 +1,25 @@
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+  background-color: #eee;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  transition: border-width 0.15s ease-in-out;
+  border-left: 2px solid #e06253;
+}
+
+li:hover {
+  border-left: 10px solid #e06253;
+}
+
+a {
+  text-decoration: none;
+}
