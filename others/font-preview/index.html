@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>字体预览</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/picocss/2.0.6/pico.min.css" />
+  </head>
+  <body>
+    <main class="container-fluid">
+      <h2>选择字体并预览</h2>
+      <input type="file" id="font-upload" accept=".woff2,.ttf" />
+      <div id="preview" contenteditable="true" style="outline: none">
+        <div>文字可编辑</div>
+        <div>大江东去浪淘尽，千古风流人物。</div>
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.11/iframeResizer.contentWindow.js"></script>
+    <script>
+      document.getElementById('font-upload').addEventListener('change', function (event) {
+        const file = event.target.files[0]
+        if (!file) {
+          return
+        }
+        const reader = new FileReader()
+        reader.onload = function (e) {
+          const fontFace = new FontFace('CustomFont', e.target.result)
+          document.fonts.add(fontFace)
+          document.fonts.ready.then(function () {
+            const preview = document.getElementById('preview')
+            preview.style.fontFamily = 'CustomFont, sans-serif'
+          })
+        }
+        reader.readAsArrayBuffer(file)
+      })
+    </script>
+  </body>
+</html>
